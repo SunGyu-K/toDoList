@@ -1,0 +1,13 @@
+#wrap {
+    width:402px;
+    height:874px;
+    padding:45px 15px;
+    background-color:aqua;}
+}
+#wrap > header {}
+#wrap > header > .w_top {}
+#wrap > header > .w_top > .right {}
+#wrap > header > .w_top > .right > .search_btn {}
+#wrap > header > .w_top > .right > .all_menu_btn {}
+
+#wrap > 

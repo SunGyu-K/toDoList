@@ -1,1 +1,117 @@
 /* index.css */
+/* 태그선택자 {속성:값;} */
+/* #아이디선택자 {속성:값;} */
+/* #클래스선택자 {속성:값;} */
+/* 부모선택자 > 자식선택자 {속성:값;} */
+/* 형제선택자 + 인접형제선택자 {속성:값;} */
+/* 형제선택자 ~ 뒤에 모든형제들 {속성:값;} */
+#wrap {
+    width:402px;/* css 숫자 입력 시 단위작성하기 */
+    height:874px;
+    /* 안쪽여백, 피그마 오토레이아웃 패딩과 동일 */
+    /* 안쪽여백 패딩을 4방향 각각 넣는 법 */
+/*     padding-left:15px;;
+    padding-right:15px;
+    padding-top:45px;
+    padding-bottom:45px; */
+    /* 패딩 값1개 작성 시 - 전체 방향 적용 */
+    /* padding:45px; */
+    /* 패딩 값2개 작성시 - 상하/좌우 방향 적용 */
+    padding:45px 15px;
+    /* 패딩 값3개 작성시 - 상/하좌/우 방향 적용 */
+    /* padding:45px 15px 45px; */
+    /* 패딩 값4개 작성시 - 12/3/6/9시 방향 적용 */
+    /* padding:45px 15px 45px 15px; */
+    /* 테두리 적용 문법 border:두께 모양 색상;*/
+    border-right:1px solid #000; 
+    background-color: aqua;
+}
+/* ===============================header 1행 범위 */
+#wrap > header {
+    border-bottom: 1px solid #000;
+    margin-bottom: 40px;
+}
+#wrap > header > .w_top {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+}
+#wrap > header > .w_top > h1 {
+}
+#wrap > header > .w_top > h1 > a {
+    font-size: 1.125em;
+    font-weight: 700;
+}
+#wrap > header > .w_top > .right {}
+#wrap > header > .w_top > .right > .search_btn {
+    margin-right:8px;
+}
+#wrap > header > .w_top > .right > .search_btn > img {}
+#wrap > header > .w_top > .right > .all_menu_btn {}
+#wrap > header > .w_top > .right > .all_menu_btn > img {}
+/* ===================================header 2행 */
+#wrap > header > nav {
+    padding-bottom:10px;
+}
+#wrap > header > nav > .all {
+    /* 자간, 행간, 글꼴 rest 초기값과 동일하므로 생략 */
+    font-size: 1.125em; color:#aaa;
+    margin-right:12px;
+}
+#wrap > header > nav > .all > .num {color:#aaa;}/* 점점 뒤로 갈수록 스타일이 변할수있다. */
+#wrap > header > nav > .today {
+    font-size: 1.125em; color:#aaa;
+}/* 활성화기준 대상 */
+#wrap > header > nav > .today > .num {color:#aaa;}
+#wrap > header > nav > .active {
+    font-weight: 700; color:#000;
+}
+#wrap > header > nav > .active > .num {
+    font-weight: 700; color:#000;
+}
+/* ===============main */
+#wrap > main {}
+/* ===============main 1행 날짜~할일 목록 리스트 */
+#wrap > main > .to_do_list {
+    background-color: azure;
+    display:flex;
+    /* gap:10px; gap이나 li 패딩값때문에 간격이 어긋나보여서 둘중 하나를 제거하면 정상처럼 보임*//* 2개 이상의 자식사이 바깥쪽여백(간격) 적용(margin효과동일) (메인축에만 적용됨)  */
+    /* margin:10px; gap:10px 결과적으로 둘다 많이 사용함 */
+    flex-flow:column-reverse nowrap;
+    /* 실제 웹&앤 서비스를 이용하는 사용자가 작성하는 내용은 항상 부모의 마지막 자식 위치로 삽입된다.개발자가 '반전' 설정을 하지 않으면 무조건 아래로 쌓인다는 뜻. 내용이 많을수록 점점 보기 불편해지는 상황이 생기므로 축 반전을 통해 사용자가 작성한 마지막 글이 '첫 글'이 되도록 프로그래밍을 작성해야한다. */
+}
+#wrap > main > .to_do_list > li {
+    /* background-color: aquamarine; */
+    display:flex;
+    /* display : flex 외에 나머지 속성은 순서 상관 없음. */
+    flex-flow:row nowrap;/* 메인축(수평) 줄바꿈(x) */
+    gap:10px; /* a(부모)와 a(부모) 기준이기에 a와 a사이로 간격거리로 줌 */
+    padding:12px 0;/* 패딩값으로 위와 아래로 잡았기에 각 간격마다 10px씩줌 */
+    justify-content:flex-start;
+    align-items:flex-start;
+    border-bottom:1px solid #000;
+}
+#wrap > main > .to_do_list > li > * {
+    font-size:1.125em;
+    letter-spacing:0.02em;
+}
+#wrap > main > .to_do_list > li > .date{
+    font-weight:600;
+}
+#wrap > main > .to_do_list > li > .contents{}
+/* ================= 글쓰기팝업 */
+#wrap > main > .write_popup {
+    background-color:chartreuse;
+    display:flex;
+    width:368px; height:252px;
+    padding:10px;
+    flex-flow:column nowrap;
+    justify-content:space-between;
+    /* align-items:flex-end; 자식 모두에게 주고 싶을 경우 align-items로 사용*/
+}
+#wrap > main > .write_popup > .info{}
+#wrap > main > .write_popup > .write_btn{
+    width:42px;height:42px;
+    align-self:flex-end;/* 자식한테만 개별로 주고싶을 경우 align-self로 사용 */
+}
+#wrap > main > .write_popup > .write_btn > img{width:100%}
