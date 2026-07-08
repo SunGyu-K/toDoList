@@ -5,7 +5,9 @@
 /* 부모선택자 > 자식선택자 {속성:값;} */
 /* 형제선택자 + 인접형제선택자 {속성:값;} */
 /* 형제선택자 ~ 뒤에 모든형제들 {속성:값;} */
-body {background-color: #F5F5F5;}
+body {background-color: #F5F5F5;
+    padding:30%
+}
 #wrap {
     position:relative;
     width:402px;/* css 숫자 입력 시 단위작성하기 */
@@ -107,6 +109,7 @@ body {background-color: #F5F5F5;}
 #wrap > main > .to_do_list > li > .contents{}
 /* ================= 글쓰기팝업 */
 #wrap > main > .write_popup {
+    z-index:999;
     background-color:#FFFFFF;
     display:flex;
     width:340px; height:252px;
@@ -118,7 +121,8 @@ body {background-color: #F5F5F5;}
     top:38%; left:8%;
     /* 팝업 중앙 띄우기(고정) */
 }
-#wrap > main > .write_popup > .info{}
+#wrap > main > .write_popup > .info{
+}
 #wrap > main > .write_popup > .write_btn{
     width:42px;height:42px;
     align-self:flex-end;/* 자식한테만 개별로 주고싶을 경우 align-self로 사용 */
@@ -127,9 +131,17 @@ body {background-color: #F5F5F5;}
 /* =====================================글쓰기버튼 */
 #wrap > main > .write_popup_btn {
     width:42px; height:42px;
-    display:block;
-    /* position:fixed;
+    display:block; /* position:fixed;
     right:10px; bottom:25px; */
     position:absolute; right:10px; bottom:25px;
+    
 }
 #wrap > main > .write_popup_btn > img {width:100%;}
+/* 팝업 배경 */
+#wrap main .popup_bg {
+    z-index:900;
+    background-color: rgba(0,0,0,0.25);
+    position:absolute;/* 부모에 상대적으로 위치잡기 */
+    width:100%; height:100%; /* 부모와 크기 동일하게 설정 */
+    left:0; top:0;
+}
